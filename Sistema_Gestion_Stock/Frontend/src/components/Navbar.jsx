@@ -19,47 +19,8 @@ import logoBlack from "../assets/logo.png";
 import logoLight from "../assets/logo-white.png";
 import styled from 'styled-components';
 
-export default function Navbar() {
-  const navigate = useNavigate();
-  const [theme, setTheme] = useState("light"); // light / dark
 
-  useEffect(() => {
-    // Detecta tema guardado en localStorage
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-    } else {
-      setTheme("light");
-      document.documentElement.classList.add("light");
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.add("light");
-      document.documentElement.classList.remove("dark");
-    } else {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-    }
-  };
-
-  const cards = [
-    { to: "/usuarios", icon: <IoPersonAddOutline />, title: "Usuarios", permiso: "GestionarUsuarios" },
-    { to: "/personas", icon: <IoPeopleOutline />, title: "Personas", permiso: "GestionarPersonas" },
-    { to: "/preguntas", icon: <IoHelp />, title: "Preguntas", permiso: "GestionarPreguntas" },
-    { to: "/restricciones", icon: <IoBan />, title: "Restricciones", permiso: "GestionarRestricciones" },
-    { to: "/permisos-usuario", icon: <IoPersonOutline />, title: "Permisos", permiso: "GestionarPermisos" },
-    { to: "/asignar-permisos", icon: <MdControlPoint />, title: "Roles", permiso: "GestionarRoles" },
-  ];
-  const StyledWrapper = styled.div`
+const StyledWrapper = styled.div`
   .switch {
    --button-width: 2.2em;
    --button-height: 1.2em;
@@ -116,7 +77,46 @@ export default function Navbar() {
    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
   }`;
 
+export default function Navbar() {
+  const navigate = useNavigate();
+  const [theme, setTheme] = useState("light"); // light / dark
 
+  useEffect(() => {
+    // Detecta tema guardado en localStorage
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      setTheme("light");
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    } else {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    }
+  };
+
+  const cards = [
+    { to: "/usuarios", icon: <IoPersonAddOutline />, title: "Usuarios", permiso: "GestionarUsuarios" },
+    { to: "/personas", icon: <IoPeopleOutline />, title: "Personas", permiso: "GestionarPersonas" },
+    { to: "/preguntas", icon: <IoHelp />, title: "Preguntas", permiso: "GestionarPreguntas" },
+    { to: "/restricciones", icon: <IoBan />, title: "Restricciones", permiso: "GestionarRestricciones" },
+    { to: "/permisos-usuario", icon: <IoPersonOutline />, title: "Permisos", permiso: "GestionarPermisos" },
+    { to: "/asignar-permisos", icon: <MdControlPoint />, title: "Roles", permiso: "GestionarRoles" },
+  ];
   return (
     <div className="nav-bg">
       <nav className="nav-glass">
