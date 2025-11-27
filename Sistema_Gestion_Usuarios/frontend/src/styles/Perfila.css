@@ -1,0 +1,46 @@
+.perfil-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.perfil-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.4rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #555;
+}
+
+.logout-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #c9302c;
+}

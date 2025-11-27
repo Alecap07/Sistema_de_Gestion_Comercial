@@ -1,0 +1,46 @@
+.perfil-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap; /* nunca se apilen en mobile normal */
+}
+
+/* Botones secundarios */
+.perfil-btn-secundario {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Texto del botón */
+.perfil-btn-text {
+  display: inline; /* visible por defecto */
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .perfil-btn-text {
+    display: none; /* ocultar texto en mobile */
+  }
+
+  .perfil-icon {
+    font-size: 22px; /* ajustar tamaño del icono */
+  }
+
+  .perfil-header {
+    gap: 12px; /* ajustar separación */
+    justify-content: center; /* centrar los 3 iconos */
+  }
+}
+
+/* Para pantallas muy pequeñas (<400px), si querés apilar */
+@media (max-width: 400px) {
+  .perfil-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

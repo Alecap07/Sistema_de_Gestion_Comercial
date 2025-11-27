@@ -1,0 +1,637 @@
+/* ========================================================= */
+/* ===============   PALETA DE COLORES GLOBAL   ============= */
+/* ========================================================= */
+:root {
+  /* ==== Paleta base compartida ==== */
+  --nav-border: rgba(255, 255, 255, 0.18);
+  /* ==== Dark mode ==== */
+  --bg-dark: #1a1a1a;
+  --bg-main-dark: rgba(30, 30, 30, 0.85);
+  --bg-card-dark: rgba(45, 45, 45, 0.85);
+  --bg-hover-dark: #2d2d2d;
+  --bg-rgbhover-dark: rgba(255, 255, 255, 0.08);
+  --box-shadow-dark: rgba(0, 0, 0, 0.4);
+  --text-primary-dark: #ffffff;
+  --text-secondary-dark: #d1d1d1;
+  --accent-1-dark: #4CAF50;
+  --accent-2-dark: #FF5252;
+  --accent-3-dark: #FFC107;
+  --line-color-dark: #3c3c3c;
+  --cbg-image-dark: url('../assets/fondo.jpg');
+  --nav-border-dark: rgba(255, 255, 255, 0.18);
+
+  /* ==== Light mode ==== */
+  --bg-light: #ffffff;
+  --bg-main-light: rgba(245, 245, 245, 0.85);
+  --bg-card-light: rgba(255, 255, 255, 0.85);
+  --bg-hover-light: #e0e0e0;
+  --bg-rgbhover-light: rgba(0, 0, 0, 0.08);
+  --box-shadow-light: rgba(0, 0, 0, 0.15);
+  --text-primary-light: #000000;
+  --text-secondary-light: #333333;
+  --accent-1-light: #388E3C;
+  --accent-2-light: #D32F2F;
+  --accent-3-light: #FFA000;
+  --line-color-light: #dddddd;
+  --cbg-image-light: url('../assets/fondo-white.jpg');
+  --nav-border-light: rgba(255, 255, 255, 0.18);
+
+  /* ==== Variables proxy que usa el CSS ==== */
+  --current-mode-bg: var(--bg-dark);
+  --current-mode-bg-main: var(--bg-main-dark);
+  --current-mode-bg-card: var(--bg-card-dark);
+  --current-mode-bg-hover: var(--bg-hover-dark);
+  --current-mode-bg-rgbhover: var(--bg-rgbhover-dark);
+  --current-mode-box-shadow: var(--box-shadow-dark);
+  --current-mode-text-primary: var(--text-primary-dark);
+  --current-mode-text-secondary: var(--text-secondary-dark);
+  --current-mode-accent-1: var(--accent-1-dark);
+  --current-mode-accent-2: var(--accent-2-dark);
+  --current-mode-accent-3: var(--accent-3-dark);
+  --current-mode-line-color: var(--line-color-dark);
+  --current-mode-bg-image: var(--cbg-image-dark);
+  --current-mode-nav-border: var(--nav-border-dark);
+}
+
+/* Tema claro automático */
+@media (prefers-color-scheme: light) {
+  :root {
+    --current-mode-bg: var(--bg-light);
+    --current-mode-bg-main: var(--bg-main-light);
+    --current-mode-bg-card: var(--bg-card-light);
+    --current-mode-bg-hover: var(--bg-hover-light);
+    --current-mode-bg-rgbhover: var(--bg-rgbhover-light);
+    --current-mode-box-shadow: var(--box-shadow-light);
+    --current-mode-text-primary: var(--text-primary-light);
+    --current-mode-text-secondary: var(--text-secondary-light);
+    --current-mode-accent-1: var(--accent-1-light);
+    --current-mode-accent-2: var(--accent-2-light);
+    --current-mode-accent-3: var(--accent-3-light);
+    --current-mode-line-color: var(--line-color-light);
+    --current-mode-bg-image: var(--cbg-image-light);
+  }
+}
+
+/* ========================================================= */
+/* ============   QUICKACCESS CONTAINER   ================== */
+/* ========================================================= */
+.quickaccess-container {
+  width: 100%;
+  height: 90%;
+  padding: 1%;
+  overflow-y: auto;
+  background-color: var(--current-mode-bg-main);
+  border-radius: 20px;
+  display: flex;
+  box-shadow: 0 8px 24px var(--current-mode-box-shadow);
+  color: var(--current-mode-text-primary);
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1%;
+  flex-wrap: wrap;
+}
+
+.quickaccess-title {
+  width: 100%;
+  height: 10%;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(15px, 2.5vw, 35px);
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 1rem;
+  padding-left: 1%;
+  color: var(--current-accent-color);
+}
+
+.quickaccess-grid {
+  width: 100%;
+  height: calc(90% - 1rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.quickcard-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  width: 140px;
+  height: 30%;
+  color: var(--current-accent-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quickcard-button:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.quickcard-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.quickcard-title {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* ========================================================= */
+/* ===================== DASHBOARD TOP ===================== */
+/* ========================================================= */
+.Dashboard-Top {
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 1%;
+}
+
+/* ========================= */
+/*         TITLE BOX         */
+/* ========================= */
+.Title-Container {
+  min-height: calc(12vh - 10px);
+  width: 100%;
+  background-color: var(--current-mode-bg-main);
+  box-shadow: 0 8px 24px var(--current-mode-box-shadow);
+  border: 1px solid var(--current-glass-border);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Ttitle {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(30px, 5vw, 60px);
+  font-weight: 700;
+  color: var(--current-mode-text-primary);
+  margin: 0;
+  padding-left: 1%;
+}
+
+/* ========================= */
+/*       SUMMARY BOX         */
+/* ========================= */
+.Summary-Container {
+  width: 100%;
+  height: 30%;
+  background-color: var(--current-mode-bg-main);
+  box-shadow: 0 8px 24px var(--current-mode-box-shadow);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  background-image: var(--current-mode-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Summary-Title {
+  width: 100%;
+  height: 60%;
+  background-color: transparent;
+}
+
+.STitle {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(20px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--current-mode-text-primary);
+  padding: 1% 0 0 1%;
+  margin: 0;
+}
+
+.SPorc {
+  font-size: clamp(12px, 2vw, 16px);
+  font-weight: 500;
+  color: var(--current-mode-text-secondary);
+  padding-left: 5px;
+  margin: 0;
+}
+
+.SInfo {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(12px, 2vw, 20px);
+  font-weight: 400;
+  color: var(--current-mode-text-secondary);
+  padding-left: 1%;
+  margin: 0;
+}
+
+.Summary-Information {
+  background-color: transparent;
+  height: 40%;
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  gap: 1%;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+.Information-Container {
+  flex: 1 1 22%;
+  min-width: 120px;
+  height: 90%;
+  margin: 0.5%;
+  z-index: 100;
+  background: var(--current-mode-bg-rgbhover);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--current-mode-nav-border);
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(20px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--current-mode-text-primary);
+}
+
+.Information-Container p {
+  margin: 0;
+  padding: 0;
+}
+
+.Ssub-info {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(12px, 2vw, 20px);
+  font-weight: 400;
+  color: var(--current-mode-text-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+.CSsub-info {
+  padding: 0;
+  margin: 0;
+}
+
+/* ========================================================= */
+/*       GRAPHICS BOX                                       */
+/* ========================================================= */
+.Graphics-Container {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  gap: 1%;
+  flex-wrap: wrap;
+}
+
+.PieChart,
+.BarChart {
+  flex: 1 1 35%;
+  width: 200px;
+  background-color: var(--current-mode-bg-card);
+  box-shadow: 0 8px 24px var(--current-mode-box-shadow);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--current-mode-text-primary);
+  position: relative;
+}
+
+.ChartTitle {
+  align-self: flex-start;
+  flex: 1 1 10%;
+  width: 250px;
+  margin-left: 1%;
+  margin-top: 1%;
+  padding-left: 3%;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--current-mode-text-primary);
+  z-index: 10;
+}
+
+.InfoChart {
+  flex: 1 1 28%;
+  min-width: 250px;
+  height: 100%;
+  background-color: var(--current-mode-bg-card);
+  box-shadow: 0 8px 24px var(--current-mode-box-shadow);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  color: var(--current-mode-text-primary);
+}
+
+/* ======== TABLA ======== */
+.TTitle {
+  text-align: left;
+  margin-left: 1%;
+  margin-top: 1%;
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--current-mode-text-primary);
+  z-index: 10;
+}
+
+.InfoTable {
+  width: 90%;
+  height: 80%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow-y: auto;
+  margin: 1% auto;
+}
+
+/* ======== CUERPO TABLA ======== */
+.InfoTable thead {
+  background-color: var(--current-mode-bg-main);
+}
+
+.InfoTable thead th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 16px;
+  border-bottom: 2px solid var(--current-mode-line-color);
+  white-space: nowrap;
+}
+
+/* ======== CUERPO TABLA ======== */
+.InfoTable tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--current-mode-line-color);
+  font-size: 15px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.InfoTable tbody tr:nth-child(even) {
+  background-color: var(--current-mode-bg-hover);
+}
+
+.InfoTable tbody tr:hover {
+  background-color: var(--current-mode-bg-rgbhover);
+}
+
+/* ========================================================= */
+/*       BOTTOM BOX                                         */
+/* ========================================================= */
+.Bottom-Container {
+  width: 100%;
+  height: 15%;
+  background-color: var(--current-mode-bg-main);
+  border-radius: 20px;
+  display: flex;
+  box-shadow: 0 8px 24px var(--current-mode-box-shadow);
+  color: var(--current-mode-text-primary);
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 10;
+}
+
+.BTitle {
+  font-family: "Epunda Sans", sans-serif;
+  font-size: clamp(15px, 2.5vw, 35px);
+  font-weight: 700;
+  color: var(--current-mode-text-primary);
+  padding: 1% 0 0 1%;
+  margin: 0;
+  padding: 0;
+  padding-left: 1%;
+}
+
+/* ========================================================= */
+/* ===============   RESPONSIVE – TABLET   ================= */
+/* ========================================================= */
+@media (max-width: 1024px) {
+  .Dashboard-Top {
+    gap: 12px;
+  }
+
+  .TTitle,
+  .STitle,
+  .ChartTitle,
+  .BTitle {
+    font-size: 30px;
+  }
+
+  .Title-Container {
+    height: 10%;
+  }
+
+  .Summary-Container {
+    height: 30%;
+    flex-direction: column;
+  }
+
+  .Graphics-Container {
+    height: 35%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .ChartTitle {
+    width: 300px;
+  }
+
+  .Summary-Information {
+    flex-direction: row;
+    gap: 10px;
+    height: 49%;
+    width: 98%;
+    padding: 1%;
+  }
+
+  .Summary-Title {
+    height: 50%;
+  }
+
+  .Information-Container {
+    width: 95%;
+    min-width: unset;
+    font-size: 18px;
+    margin: 6px auto;
+    height: 100%;
+  }
+
+  .PieChart,
+  .BarChart,
+  .InfoChart {
+    width: 200px;
+    height: 100%;
+  }
+
+  .Bottom-Container {
+    height: 25%;
+  }
+}
+
+/* ========================================================= */
+/* ===============   RESPONSIVE – MOBILE   ================= */
+/* ========================================================= */
+@media (max-width: 768px) {
+  .Dashboard-Top {
+    gap: 1%;
+    flex-direction: column;
+  }
+
+  .Title-Container {
+    border-radius: 15px;
+    height: calc(5% - 0.5%);
+  }
+
+  .Ttitle {
+    font-size: 30px;
+    padding-left: 2%;
+  }
+
+  .Summary-Container {
+    flex-direction: column;
+    height: calc(30% - 0.5%);
+  }
+
+  .Summary-Information {
+    flex-direction: row;
+    gap: 10px;
+    height: 70%;
+  }
+
+  .Summary-Title {
+    height: 30%;
+  }
+
+  .STitle {
+    font-size: 35px;
+  }
+
+  .SInfo {
+    font-size: 20px;
+  }
+
+  .Information-Container {
+    width: 95%;
+    min-width: unset;
+    font-size: 18px;
+    margin: 6px auto;
+    height: auto;
+  }
+
+  .Graphics-Container {
+    flex-direction: row;
+    gap: 12px;
+    height: calc(35% - 0.5%);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .PieChart,
+  .BarChart,
+  .InfoChart {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ChartTitle {
+    flex: 1 1 10%;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-top: 6px;
+  }
+
+  .Bottom-Container {
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 15px;
+    height: calc(25% - 0.5%);
+  }
+
+  .BTitle {
+    font-size: 20px;
+    padding-left: 0;
+    margin-bottom: 8px;
+  }
+
+  .InfoTable thead th,
+  .InfoTable tbody td {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .InfoTable {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .quickaccess-container {
+    margin: 2rem 0;
+    text-align: center;
+    overflow-y: auto;
+  }
+
+  .quickaccess-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  .quickaccess-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .quickcard-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 1.5rem 1rem;
+    width: 140px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .quickcard-button:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .quickcard-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .quickcard-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+
+}

@@ -1,0 +1,2 @@
+# Ignorar variables sensibles locales
+.env

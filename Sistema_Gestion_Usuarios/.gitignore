@@ -1,0 +1,38 @@
+# Archivos de compilación
+Api/bin
+Api/obj
+Application/obj
+Application/bin
+Common/bin
+Common/obj
+Domain/bin
+Domain/obj
+Infrastructure/bin
+Infrastructure/obj
+bin/
+obj/
+Debug/
+Release/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+
+# Configuración local
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Dependencias (si tenés front-end)
+node_modules/
+build/
+dist/
+.cache/
+.parcel-cache/
+.next/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

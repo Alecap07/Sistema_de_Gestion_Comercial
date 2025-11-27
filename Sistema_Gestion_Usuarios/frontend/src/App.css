@@ -1,0 +1,199 @@
+:root{
+  /* Modo Claro (liquid glas) */
+  --light-mode-border-color: rgba(255, 255, 255, 0.7);
+  --light-mode-tint-color: rgba(255, 255, 255, 0.4);
+  --light-mode-inner-shadow: rgba(255, 255, 255, 0.7);
+  --light-mode-outer-glow: rgba(255, 255, 255, 0.2);
+  --light-mode-button-primary:rgba(245, 245, 245, 1);
+  --light-mode-button-primary-hover:rgba(200, 200, 200);
+  --light-mode-button-secondary:rgba(200, 200, 200);
+  --light-mode-button-secundary-hover:rgba(190, 190, 190);
+  --light-mode-button-terciary:rgb(30, 30, 30);
+  --light-mode-button-terciary-hover:rgba(60, 60, 60);
+
+  /* Modo Oscuro */
+  --dark-mode-border-color: rgba(136, 136, 136, 0.4);
+  --dark-mode-tint-color: rgba(255, 255, 255, 0.1);
+  --dark-mode-inner-shadow: rgba(121, 121, 121, 0.25);
+  --dark-mode-outer-glow: rgba(41, 41, 41, 0.15);
+  --dark-mode-button-primary:rgba(30, 30, 30, 1);
+  --dark-mode-button-secondary:rgba(50, 50, 50, 0.6);
+  --dark-mode-button-primary-hover:rgba(30, 30, 30, 0.8);
+  --dark-mode-button-secundary-hover:rgba(50, 50, 50, 0.8);
+  --dark-mode-button-terciary:rgb(245, 245, 245);
+  --dark-mode-button-terciary-hover:rgba(220, 220, 220);
+}
+.light:root{
+  /* Tema claro automático */
+  /* Navbar */
+  --current-mode-bg-hover: var(--bg-hover-light);
+  --current-mode-bg-rgbhover: var(--bg-rgbhover-light);
+  --current-mode-box-shadow: var(--box-shadow-light);
+  --current-mode-black: var(--black-light);
+  --current-mode-nav-bg: var(--nav-bg-light);
+  --current-mode-line-color: var(--line-color-light);
+  --current-mode-nav-border: var(--nav-border-light);
+  /* Dashboard */
+  --current-mode-bg: var(--bg-light);
+  --current-mode-bg-main: var(--bg-main-light);
+  --current-mode-bg-card: var(--bg-card-light);
+  --current-mode-bg-hover: var(--bg-hover-light);
+  --current-mode-bg-rgbhover: var(--bg-rgbhover-light);
+  --current-mode-box-shadow: var(--box-shadow-light);
+  --current-mode-text-primary: var(--text-primary-light);
+  --current-mode-text-secondary: var(--text-secondary-light);
+  --current-mode-accent-1: var(--accent-1-light);
+  --current-mode-accent-2: var(--accent-2-light);
+  --current-mode-accent-3: var(--accent-3-light);
+  --current-mode-line-color: var(--line-color-light);
+  --current-mode-bg-image: var(--bg-image-light);
+  --current-mode-nav-border: var(--nav-border-light);
+  /* Persona CRUD y User CRUD */
+  --current-glass-bg:var(--light-glass-bg);
+  --current-glass-border:var(--light-glass-border);
+  --current-accent-color:var(--light-accent-color);
+  --current-input-bg: var(--light-input-bg);
+  --current-input-border: var(--light-input-border);
+  --current-placeholder-color: var(--light-placeholder-color);
+  --current-bg-img:var(--light-bg-img);
+  /* Variables claras liquid glass */
+  --current-mode-border-color: var(--light-mode-border-color);
+  --current-mode-tint-color: var(--light-mode-tint-color);
+  --current-mode-inner-shadow: var(--light-mode-inner-shadow);
+  --current-mode-outer-glow: var(--light-mode-outer-glow);
+  /* Botones */
+  --current-button-primary: var(--light-mode-button-primary);
+  --current-button-secondary: var(--light-mode-button-secondary);
+  --current-button-primary-hover: var(--light-mode-button-primary-hover);
+  --current-button-secundary-hover: var(--light-mode-button-secundary-hover);
+  --current-button-terciary: var(--light-mode-button-terciary);
+  --current-button-terciary-hover: var(--light-mode-button-terciary-hover);
+}
+.dark:root{
+  /* Tema oscuro automático */
+  /* Navbar */
+  --current-mode-bg-hover: var(--bg-hover-dark);
+  --current-mode-bg-rgbhover: var(--bg-rgbhover-dark);
+  --current-mode-box-shadow: var(--box-shadow-dark);
+  --current-mode-black: var(--black-dark);
+  --current-mode-nav-bg: var(--nav-bg-dark);
+  --current-mode-line-color: var(--line-color-dark);
+  --current-mode-nav-border: var(--nav-border-dark);
+  /* Dashboard */
+  --current-mode-bg: var(--bg-dark);
+  --current-mode-bg-main: var(--bg-main-dark);
+  --current-mode-bg-card: var(--bg-card-dark);
+  --current-mode-bg-hover: var(--bg-hover-dark);
+  --current-mode-bg-rgbhover: var(--bg-rgbhover-dark);
+  --current-mode-box-shadow: var(--box-shadow-dark);
+  --current-mode-text-primary: var(--text-primary-dark);
+  --current-mode-text-secondary: var(--text-secondary-dark);
+  --current-mode-accent-1: var(--accent-1-dark);
+  --current-mode-accent-2: var(--accent-2-dark);
+  --current-mode-accent-3: var(--accent-3-dark);
+  --current-mode-line-color: var(--line-color-dark);
+  --current-mode-bg-image: var(--bg-image-dark);
+  --current-mode-nav-border: var(--nav-border-dark);
+  /* Persona CRUD y User CRUD */
+  --current-glass-bg:var(--glass-bg);
+  --current-glass-border:var(--glass-border);
+  --current-accent-color:var(--accent-color);
+  --current-input-bg: var(--input-bg);
+  --current-input-border: var(--input-border);
+  --current-placeholder-color: var(--placeholder-color);
+  --current-bg-img:var(--bg-img);
+  /* Variables oscuras liquid glass */
+  --current-mode-border-color: var(--dark-mode-border-color);
+  --current-mode-tint-color: var(--dark-mode-tint-color);
+  --current-mode-inner-shadow: var(--dark-mode-inner-shadow);
+  --current-mode-outer-glow: var(--dark-mode-outer-glow);
+  /* Botones */
+  --current-button-primary: var(--dark-mode-button-primary);
+  --current-button-secondary: var(--dark-mode-button-secondary);
+  --current-button-primary-hover: var(--dark-mode-button-primary-hover);
+  --current-button-secundary-hover: var(--dark-mode-button-secundary-hover);
+  --current-button-terciary: var(--dark-mode-button-terciary);
+  --current-button-terciary-hover: var(--dark-mode-button-terciary-hover);
+  --current-button-border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.App {
+  text-align: center;
+}
+.dark,.light{
+  background-color: var(--current-mode-bg);
+  background-image: var(--current-bg-img);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  
+}
+
+.Container{
+  padding: 1% 1% 1% 5%;
+  min-width: 100vw;
+  min-height: 100vh;      
+  margin: 0;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+@media(max-width: 1400px){
+    .Container{
+        padding: 1% 1% 1% 7%;
+    }
+}
+@media(max-width: 1200px){
+    .Container{
+        padding: 1% 1% 1% 8%;
+    }
+}
+@media(max-width: 1000px){
+    .Container{
+        padding: 1% 1% 1% 10%;
+    }
+}
+@media(max-width: 900px){
+    .Container{
+         padding: 1% 1% 1% 1%;
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

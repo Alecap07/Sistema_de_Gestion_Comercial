@@ -1,0 +1,102 @@
+/* ======= MODAL Y INPUTS ======= */
+.pregunta-modal-overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height:100vh;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow-y: auto;
+  
+}
+
+.pregunta-modal-content {
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--current-glass-border);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 600px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.pregunta-close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--current-accent-color);
+}
+
+.pregunta-crud-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pregunta-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pregunta-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pregunta-input-wrapper label {
+  min-width: 130px;
+  font-weight: 600;
+}
+
+.pregunta-form-input,
+.pregunta-form-description {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--current-input-border);
+  background: var(--current-input-bg);
+  color: var(--current-accent-color);
+}
+
+.pregunta-lock-button {
+  cursor: pointer;
+  color: var(--current-accent-color);
+  font-size: 18px;
+  margin-left: 4px;
+}
+
+.pregunta-description-display {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pregunta-form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Error */
+.error-message {
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+

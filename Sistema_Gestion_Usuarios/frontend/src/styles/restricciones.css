@@ -1,0 +1,264 @@
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--current-glass-bg);
+  border: 1px solid var(--current-glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 16px #0002;
+  padding: 32px;
+  backdrop-filter: blur(var(--glass-blur));
+  animation: fadeIn 0.6s ease-out forwards;
+  transition: background var(--transition), border var(--transition);
+}
+
+
+
+.btn-secondary,
+.btn-primary,
+.btn-warning {
+  background: var(--current-glass-bg);
+  color: var(--current-accent-color);
+  border: 1px solid var(--current-glass-border);
+  border-radius: var(--radius);
+  padding: 8px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.btn-secondary:hover,
+.btn-primary:hover,
+.btn-warning:hover {
+  background: var(--current-input-bg);
+}
+
+.admin-title {
+  text-align: center;
+  color: var(--current-accent-color);
+  margin-bottom: 30px;
+}
+
+.empty-table {
+  color: var(--current-accent-color);
+  text-align: center;
+  font-weight: 600;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--current-glass-bg);
+  border: 1px solid var(--current-glass-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.admin-table thead {
+  background: var(--current-glass-bg);
+  color: var(--current-accent-color);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 10px 14px;
+  text-align: left;
+  color: var(--current-accent-color);
+  border-bottom: 1px solid var(--current-glass-border);
+}
+
+.admin-table tr.row-editing {
+  background: var(--current-input-bg);
+}
+
+.admin-form {
+  margin-top: 32px;
+  background: var(--current-glass-bg);
+  border: 1px solid var(--current-glass-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.form-group label {
+  color: var(--current-accent-color);
+  font-weight: 600;
+}
+.form-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: var(--radius);
+  background: var(--current-input-bg);
+  border: 1px solid var(--current-input-border);
+  color: var(--current-accent-color);
+}
+
+.form-input.disabled {
+  opacity: 0.7;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .admin-container {
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .admin-title {
+    font-size: clamp(1.6em, 3vw, 2em);
+    margin-bottom: 20px;
+  }
+
+  .btn-secondary,
+  .btn-primary,
+  .btn-warning {
+    padding: 8px 16px;
+    font-size: 0.95em;
+  }
+
+  .admin-form {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .form-group label {
+    font-size: 0.95em;
+  }
+
+  .form-select {
+    font-size: 0.95em;
+  }
+
+  .form-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .admin-table {
+    font-size: 0.95em;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 8px 10px;
+  }
+}
+/* --- RESPONSIVE TABLA RESTRICCIONES --- */
+@media (max-width: 768px) {
+  .pregunta-crud-container {
+    margin-bottom: 80px;
+  }
+
+  .admin-table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+    border: 1px solid var(--current-glass-border);
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    white-space: nowrap;
+    padding: 8px 10px;
+  }
+
+  .pregunta-crud-form {
+    flex-direction: column;
+  }
+
+  .form-input,
+  .form-select {
+    font-size: clamp(14px, 2vw, 16px);
+  }
+
+  .submit-button,
+  .cancel-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-table,
+  .admin-table thead,
+  .admin-table tbody,
+  .admin-table th,
+  .admin-table td,
+  .admin-table tr {
+    display: block;
+    min-width: 200px;
+    max-width: 600px;
+  }
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table tr {
+    background: var(--current-glass-bg);
+    border: 1px solid var(--current-glass-border);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    padding: 12px;
+    backdrop-filter: blur(var(--glass-blur));
+    animation: fadeIn 0.3s ease;
+  }
+
+  .admin-table td {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 8px 6px;
+    border: none;
+    border-bottom: 1px solid var(--current-glass-border);
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+
+  .admin-table td:last-child {
+    border-bottom: none;
+  }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--current-accent-color);
+    margin-bottom: 4px;
+  }
+
+
+  .empty-table {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}

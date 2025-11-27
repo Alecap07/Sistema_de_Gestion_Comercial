@@ -1,0 +1,10 @@
+// placeholder
+bin/
+obj/
+.env
+appsettings.Development.json
+*.user
+*.suo
+.vscode/
+.idea/
+TestResults/

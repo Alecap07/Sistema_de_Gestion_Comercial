@@ -1,0 +1,464 @@
+/* ============================= */
+/* ========   VARIABLES  ======== */
+/* ============================= */
+:root {
+  /* ==========  MODO OSCURO (valores base)  ========== */
+  --bg-hover-dark: #2d2d2d;
+  --bg-rgbhover-dark: rgba(255, 255, 255, 0.08);
+  --box-shadow-dark: rgba(0, 0, 0, 0.4);
+  --black-dark: #ffffff;
+  --nav-bg-dark: rgba(30, 30, 30, 0.75);
+  --line-color-dark: #3c3c3c;
+  --nav-border-dark: rgba(102, 102, 102, 0.18);
+
+  /* ==========  MODO CLARO (valores originales)  ========== */
+  --bg-hover-light: #e0e0e0;
+  --bg-rgbhover-light: rgba(0, 0, 0, 0.08);
+  --box-shadow-light: rgba(0,0,0,0.15);
+  --black-light: #000000;
+  --nav-bg-light: rgba(245, 245, 245, 0.75);
+  --line-color-light: rgb(221, 221, 221);
+  --nav-border-light: rgba(255, 255, 255, 0.18);
+
+  /* ==========  VARIABLES “PROXY” QUE USA EL CSS  ========== */
+  --current-mode-bg-hover: var(--bg-hover-dark);
+  --current-mode-bg-rgbhover: var(--bg-rgbhover-dark);
+  --current-mode-box-shadow: var(--box-shadow-dark);
+  --current-mode-black: var(--black-dark);
+  --current-mode-nav-bg: var(--nav-bg-dark);
+  --current-mode-line-color: var(--line-color-dark);
+  --current-mode-nav-border: var(--nav-border-dark);
+  --current-radius : 20px;
+}
+
+/* Tema claro automático */
+@media (prefers-color-scheme: light) {
+  :root {
+    --current-mode-bg-hover: var(--bg-hover-light);
+    --current-mode-bg-rgbhover: var(--bg-rgbhover-light);
+    --current-mode-box-shadow: var(--box-shadow-light);
+    --current-mode-black: var(--black-light);
+    --current-mode-nav-bg: var(--nav-bg-light);
+    --current-mode-line-color: var(--line-color-light);
+    --current-mode-nav-border: var(--nav-border-light);
+  }
+
+  #logo-black { display: none; }
+  #logo-light { display: inline; }
+}
+
+
+
+/* ============================= */
+/* ======== ELEMENTOS BASE ====== */
+/* ============================= */
+.nav-links-mobile{
+  display: none;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: var(--current-mode-line-color);
+}
+
+.nav-info {
+  color: var(--current-mode-black);
+  display: none;
+  transform: translateX(-10px);
+  white-space: nowrap;
+  max-width: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    max-width 0.3s ease;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+/* ============================= */
+/* =========   NAVBAR   ========= */
+/* ============================= */
+.nav-glass {
+  position: fixed;
+  top: 1%;
+  left: 0.2%;
+  width: 70px;
+  height: 98%;
+  background: var(--current-mode-nav-bg);
+  border: 1px solid var(--current-mode-nav-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);      
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 24px var(--current-mode-box-shadow);
+  border-radius: var(--current-radius);
+  z-index: 1000;
+  transition: all 0.5s ease;
+}
+
+.nav-glass:hover {
+  width: 200px;
+}
+
+.nav-glass:hover .nav-info {
+  display: inline;
+  transform: translateX(0);
+  max-width: 150px;
+  padding-left: 10px;
+}
+
+.nav-glass:hover .nav-links-top,
+.nav-glass:hover .nav-links-bottom {
+  width: 90%;
+}
+.nav-glass:hover .line {
+  position: relative;
+  width: 80%;
+  left: 10%;
+}
+
+.nav-logo {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 15%;
+}
+
+#logo-black {
+  height: 60px;
+  display: none;
+}
+
+#logo-light {
+  height: 60px;
+}
+
+@media (prefers-color-scheme: light) {
+  #logo-black { display:inline; }
+  #logo-light { display: none; }
+}
+
+/* ============================= */
+/* =========   LINKS   ========== */
+/* ============================= */
+.nav-links-top{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 1.25rem;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links-top { height: 70%; }
+
+.nav-links-bottom {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 30%;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.nav-links-top li{
+  padding: 8px 14px;
+  border-radius: 12px;
+  transition: background 0.3s, transform 0.2s;
+}
+.nav-links-bottom li{
+  padding: 8px 14px;
+  border-radius: 12px;
+  transition: background 0.3s, transform 0.2s;
+}
+.nav-links-top li a,
+.nav-links-bottom li a {
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.12rem;
+  transition: color 0.3s ease;
+  color: var(--current-mode-black);
+}
+
+.nav-links-top li:hover,
+.nav-links-bottom li:hover {
+  background-color: var(--current-mode-bg-rgbhover);
+  transform: translateY(-2px);
+}
+
+.nav-links-top li svg,
+.nav-links-bottom li svg {
+  color: var(--current-mode-black);
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.nav-links-top li:visited a,
+.nav-links-bottom li:visited a {
+  color: var(--current-mode-black);
+}
+
+.nav-links-top li.active,
+.nav-links-bottom li.active {
+  background-color: var(--current-mode-bg-hover);
+}
+
+/* ============================= */
+/* ==== LINKS MOBILE =========== */
+/* ============================= */
+.nav-links-mobile {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+.nav-links-mobile li {
+  padding: 19px 19px;
+  transition: background 0.3s, transform 0.2s;
+  border-radius:100px;
+}
+
+.nav-links-mobile li a {
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.12rem;
+  transition: color 0.3s ease;
+  color: var(--current-mode-black);
+}
+
+.nav-links-mobile li:hover, .nav-links-mobile li.active {
+  background-color: var(--current-mode-bg-rgbhover);
+  transform: translateY(-4px);
+}
+
+.nav-links-mobile li svg {
+  color: var(--current-mode-black);
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.nav-links-mobile li:visited a {
+  color: var(--current-mode-black);
+}
+
+/* ============================= */
+/* ====== AVATAR / NOMBRE / EMAIL ====== */
+/* ============================= */
+.nav-links-bottom .nav-user-info,
+.nav-links-bottom .nav-user-name,
+.nav-links-bottom .nav-user-email {
+  color: var(--current-mode-black);
+  font-weight: 600;
+  max-width: 60px;
+  font-size: 12px;
+  transition: color 1.3s ease;
+}
+.nav-user{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 1.3s ease;
+}
+#logout-li{
+ background-color: var(--current-mode-nav-bg);
+}
+.nav-glass:hover
+.nav-links-bottom .nav-user-info,
+.nav-glass:hover
+.nav-links-bottom .nav-user-name,
+.nav-glass:hover
+.nav-links-bottom .nav-user-email {
+  max-width: 190px;
+  font-size: 16px;
+}
+/* ============================= */
+/* ========= RESPONSIVE ========= */
+/* ============================= */
+@media (max-width: 900px) {
+  .nav-glass {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: auto;
+    bottom: 1%;
+    height: 70px;
+    width: 100%;
+    z-index: 1000;
+    border-radius: 100px;
+    box-shadow: 0 -8px 24px var(--current-mode-box-shadow);
+    transition: all 0.5s ease;
+  }
+  .nav-glass:hover {
+    width: 100%;
+  }
+  .nav-glass:hover .nav-info {
+    opacity: 0;
+    transform: translateX(0);
+    max-width: 0;
+    padding-left: 0;
+  }
+  .line {
+    display: none;
+  }
+  .nav-links-bottom, .nav-links-top{
+    display: none;
+  }
+  .nav-links-mobile {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #logo-black, #logo-light {
+   display: none;
+  }
+}
+
+@media (max-width: 420px) {
+
+}
+
+/* Avatar + Info estilo Sidebar */
+
+.nav-links-bottom img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* redondo */
+  object-fit: cover;
+}
+
+.nav-links-bottom .nav-info {
+  display: block !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--current-mode-black);
+  
+}
+
+/* Botón Cerrar sesión con efecto glass */
+.logout-glass {
+  width: 100%;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  color: var(--current-mode-black);
+  background: transparent;
+  background-color: transparent;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  transition: all 0.25s ease-in-out;
+}
+
+/* ---------- Logout responsive (desktop) ---------- */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn .logout-icon {
+  display: none;
+  font-size: 1.25rem;
+  vertical-align: middle;
+}
+
+.logout-btn .logout-text {
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* Si querés que el logout tenga el mismo hover glass que .logout-glass, podés mantener .logout-glass en el botón.
+   En mi JSX usamos logout-glass + logout-btn. */
+
+/* Mostrar icono en la versión reducida (esto es útil si aún dejás el botón en nav-links-bottom visible) */
+@media (max-width: 900px) {
+  .logout-btn .logout-text { display: none; }
+  .logout-btn .logout-icon { display: block; }
+}
+
+/* ---------- Logout mobile (botón dentro de nav-links-mobile) ---------- */
+.nav-item-mobile-logout {
+  background: transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item-mobile-logout svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--current-mode-black);
+}
+
+/* Hover similar a otros ítems mobile */
+.nav-links-mobile li .nav-item-mobile-logout:hover {
+  background-color: var(--current-mode-bg-rgbhover);
+  transform: translateY(-4px);
+}
+
+/* Asegurar que los botones en nav-links-mobile no tengan borde por defecto */
+.nav-links-mobile li button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Si por algún motivo tu .nav-links-mobile muestra el logout pero con texto,
+   estas reglas garantizan que en mobile sólo se vea el icono. */
+@media (max-width: 900px) {
+  .nav-links-mobile .logout-text { display: none !important; }
+}
+
+/* --- Logout modo sidebar reducido (PC) --- */
+.logout-btn .logout-text {
+  display: none; /* por defecto oculto cuando está reducido */
+}
+
+.logout-btn .logout-icon {
+  display: block; /* por defecto mostrar solo el ícono */
+  font-size: 1.3rem;
+}
+
+/* Cuando el sidebar se expande con hover, mostrar el texto */
+.nav-glass:hover .logout-btn .logout-text {
+  display: inline-block;
+}
+
+.nav-glass:hover .logout-btn .logout-icon {
+  margin-left: 0.4rem; /* separador entre icono y texto */
+}
+

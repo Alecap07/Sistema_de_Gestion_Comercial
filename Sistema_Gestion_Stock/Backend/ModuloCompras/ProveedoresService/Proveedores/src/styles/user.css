@@ -1,0 +1,110 @@
+.Sub-Container{
+  width: 100%;
+  min-height: calc(97vh - 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.UTitle{
+    position: relative;
+    left: 1%;
+    padding: 0;
+    margin: 0;
+    color: var(--current-accent-color);
+}
+.pagination {
+  display: flex;
+  position: absolute;
+  bottom: 1%;
+  z-index: 3;
+  gap: 5px;
+  height: 5%;
+  width: calc(100% - 40px);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.pagination button{
+    padding: 10px 12px;
+    border-radius: 20px;
+    border: 2px solid var(--current-input-border);
+    cursor: pointer;
+    background-color: var(--current-glass-bg);
+    color: var(--current-accent-color);
+    transition: all 0.3s ease;
+}
+.active{
+    transform: translateY(-5px);
+}
+.active:hover{
+    transform: translateY(0px);
+}
+.pagination button:hover{
+    transform: translateY(-5px);
+}
+.btn-card {
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.btn-card.edit {
+  background: #2196f3;
+}
+
+.btn-card.secondary {
+  background: #757575;
+}
+
+.btn-card:hover {
+  transform: scale(1.05);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 380px;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.close-modal {
+  margin-top: 10px;
+  background: crimson;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

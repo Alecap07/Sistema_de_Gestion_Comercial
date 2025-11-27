@@ -1,0 +1,200 @@
+/* ===================
+   BODY
+=================== */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body.contra-primeraVez-body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  overflow-x: hidden; /* evita scroll horizontal */
+  color: var(--current-accent-color);
+}
+
+
+
+/* ===================
+   CONTENEDOR
+=================== */
+.contra-primeraVez-container {
+  width: 100%;       /* para PC sigue igual */
+  max-width: 400px;  /* tamaño “grande” en PC */
+  min-height: 350px;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;        
+  box-sizing: border-box; 
+
+  animation: slideDown 0.6s ease-out forwards;
+}
+
+
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===================
+   TITULO
+=================== */
+.contra-primeraVez-container h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--current-accent-color);
+}
+
+/* ===================
+   INPUT WRAPPER
+=================== */
+.contra-input-wrapper {
+  width: 100%;
+}
+
+/* ===================
+   INPUTS y BOTÓN
+=================== */
+.form-input,
+.submit-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.05rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color: var(--current-accent-color);
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--current-accent-color);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+.submit-button {
+  cursor: pointer;
+  border: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  opacity: 0.95;
+}
+
+/* ===================
+   TOASTS FLOTANTES
+=================== */
+#contra-toast-container {
+   position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contra-toast {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  font-weight: 500;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideInLeft 0.3s ease;
+}
+
+.toast-success {
+  border-color: rgba(22, 163, 74, 0.6);
+  background-color: rgba(22, 163, 74, 0.2);
+  color: #16a34a;
+}
+
+.toast-error {
+  border-color: rgba(220, 38, 38, 0.6);
+  background-color: rgba(220, 38, 38, 0.2);
+  color: #dc2626;
+}
+
+.toast-neutral {
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+
+.close-toast {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 0.95; }
+}
+
+/* ===================
+   RESPONSIVE PARA MÓVILES
+=================== */
+@media (max-width: 768px) {
+  .contra-primeraVez-container {
+    width: 90%;
+    max-width: none;
+  }
+
+  #contra-toast-container {
+    top: 10px;
+    left: 10px;
+  }
+
+  .contra-toast {
+    min-width: 220px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}

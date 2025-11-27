@@ -1,0 +1,44 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Environment secrets
+.env
+
+# ASP.NET Core
+appsettings.Development.json
+appsettings.*.local.json
+
+# Logs
+*.log
+Logs/
+logs/
+
+# Test results
+TestResults/
+*.trx
+
+# Dependency directories
+packages/
+.nuget/
+node_modules/
+
+# Others
+_ReSharper*/
+*.ncrunch*
+*.ndoc*
+*.DS_Store
+Thumbs.db
+
+# Rider
+.idea/
