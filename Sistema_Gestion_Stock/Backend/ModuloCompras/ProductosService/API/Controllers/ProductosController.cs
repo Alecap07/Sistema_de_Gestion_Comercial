@@ -49,7 +49,6 @@ public sealed class ProductosController : ControllerBase
         return NoContent();
     }
 
-    // Comando no idempotente (cada llamada cambia el stock)
     [HttpPost("{id:int}/stock/ajustar")]
     public async Task<ActionResult<object>> AdjustStock(int id, [FromQuery] int delta, CancellationToken ct)
     {

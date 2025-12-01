@@ -17,6 +17,6 @@ public sealed class Producto
     public int? StockMinimo { get; set; }
     public int? StockIdeal { get; set; }
     public int? StockMaximo { get; set; }
-    public string? TipoStock { get; set; } // "JIT" | "EXISTENCIA"
+    public string? TipoStock { get; set; } 
     public bool Activo { get; set; }
 }

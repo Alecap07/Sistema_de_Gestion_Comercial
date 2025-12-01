@@ -63,7 +63,6 @@ public class PresupuestosVentasItemsRepository : IPresupuestosVentasItemsReposit
 
     public async Task<bool> SoftDeleteAsync(int id)
     {
-        // No hay SP delete para items: reutilizamos Update poniendo Activo=0
         var existing = await GetByIdAsync(id);
         if (existing is null) return false;
         existing.Activo = false;

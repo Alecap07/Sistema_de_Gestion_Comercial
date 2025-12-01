@@ -9,5 +9,5 @@ public interface IPresupuestosVentasItemsService
     Task<Result<PresupuestoVentaItemReadDto>> GetByIdAsync(int id);
     Task<Result<IReadOnlyList<PresupuestoVentaItemReadDto>>> ListByPresupuestoAsync(int presupuestoVentaId);
     Task<Result<bool>> UpdateAsync(int id, PresupuestoVentaItemUpdateDto dto);
-    Task<Result<bool>> CancelAsync(int id); // soft delete (Activo = 0)
+    Task<Result<bool>> CancelAsync(int id); 
 }

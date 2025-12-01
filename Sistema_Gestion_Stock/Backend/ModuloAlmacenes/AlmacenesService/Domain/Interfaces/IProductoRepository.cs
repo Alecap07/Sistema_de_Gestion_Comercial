@@ -6,7 +6,7 @@ namespace Domain.Interfaces
     {
         Task<IEnumerable<Producto>> GetAllAsync();
         Task<Producto?> GetByIdAsync(int id);
-        Task<Producto?> GetByCodigoAsync(int codigo); // 👈 agregado correctamente como int
+        Task<Producto?> GetByCodigoAsync(int codigo); 
         Task AddAsync(Producto producto);
         Task UpdateAsync(Producto producto);
         Task DeleteAsync(int id);

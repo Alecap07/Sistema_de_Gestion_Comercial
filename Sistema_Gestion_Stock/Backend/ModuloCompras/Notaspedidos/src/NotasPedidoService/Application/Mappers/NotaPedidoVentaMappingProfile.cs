@@ -8,7 +8,6 @@ namespace NotasPedidoService.Application.Mappers
     {
         public NotaPedidoVentaMappingProfile()
         {
-            // Mapeos para NotaPedidoVenta
             CreateMap<NotaPedidoVentaCreateDTO, NotaPedidoVenta>()
                 .ForMember(dest => dest.Fecha, opt => opt.MapFrom(src => src.Fecha ?? DateTime.Now));
 

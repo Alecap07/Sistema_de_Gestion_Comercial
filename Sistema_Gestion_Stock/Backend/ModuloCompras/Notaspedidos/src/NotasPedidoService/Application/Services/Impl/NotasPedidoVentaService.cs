@@ -58,7 +58,7 @@ namespace NotasPedidoService.Application.Services.Impl
             var existing = await _notasRepo.GetByIdAsync(id)
                 ?? throw new Exception("NotaPedidoVenta no encontrada");
 
-            _mapper.Map(dto, existing); // only non-null will be mapped
+            _mapper.Map(dto, existing); 
             await _notasRepo.UpdateAsync(id, existing);
         }
 

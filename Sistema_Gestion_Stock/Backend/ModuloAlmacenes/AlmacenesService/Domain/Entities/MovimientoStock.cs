@@ -14,7 +14,7 @@ namespace Domain.Entities
 
         [Required]
         [Column("Codigo")]
-        public int Codigo { get; set; } // 🔹 FK a Productos(Codigo)
+        public int Codigo { get; set; } 
 
         [Column("IdOrden")]
         public int? IdOrden { get; set; }

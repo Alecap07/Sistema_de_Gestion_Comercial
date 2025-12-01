@@ -9,6 +9,5 @@ public class PresupuestoVenta
     public string? Observacion { get; set; }
     public bool Activo { get; set; }
 
-    // Navegación (no mapeada por Dapper automáticamente)
     public List<PresupuestoVentaItem> Items { get; set; } = new();
 }

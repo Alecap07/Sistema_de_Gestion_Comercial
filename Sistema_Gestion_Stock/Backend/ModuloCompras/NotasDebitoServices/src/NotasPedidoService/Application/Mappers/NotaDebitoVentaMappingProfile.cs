@@ -8,7 +8,6 @@ namespace NotasDebitoService.Application.Mappers
     {
         public NotaDebitoVentaMappingProfile()
         {
-            // Mapeos para NotaDebitoVenta
             CreateMap<NotaDebitoVentaCreateDTO, NotaDebitoVenta>();
             CreateMap<NotaDebitoVentaUpdateDTO, NotaDebitoVenta>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));

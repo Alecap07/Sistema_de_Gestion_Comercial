@@ -12,7 +12,6 @@ public class ProveedorProductosController : ControllerBase
     private readonly IProveedorProductoService _service;
     public ProveedorProductosController(IProveedorProductoService service) => _service = service;
 
-    // Listar productos de un proveedor
     [HttpGet("{proveedorId:int}/productos")]
     public async Task<ActionResult<IEnumerable<ProveedorProductoDTO>>> GetByProveedor(int proveedorId, [FromQuery] EstadoFiltro estado = EstadoFiltro.Activos, CancellationToken ct = default)
     {
@@ -20,7 +19,6 @@ public class ProveedorProductosController : ControllerBase
         return Ok(lista);
     }
 
-    // Obtener producto por relación Id
     [HttpGet("productos/{id:int}")]
     public async Task<ActionResult<ProveedorProductoDTO>> GetById(int id, CancellationToken ct = default)
     {
@@ -28,7 +26,6 @@ public class ProveedorProductosController : ControllerBase
         return obj == null ? NotFound() : Ok(obj);
     }
 
-    // Crear producto de proveedor
     [HttpPost("{proveedorId:int}/productos")]
     public async Task<ActionResult<int>> Create(int proveedorId, [FromBody] ProveedorProductoCreateDTO dto, CancellationToken ct)
     {
@@ -36,7 +33,6 @@ public class ProveedorProductosController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = newId }, newId);
     }
 
-    // Modificar asignación producto-proveedor
     [HttpPut("productos/{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] ProveedorProductoUpdateDTO dto, CancellationToken ct)
     {

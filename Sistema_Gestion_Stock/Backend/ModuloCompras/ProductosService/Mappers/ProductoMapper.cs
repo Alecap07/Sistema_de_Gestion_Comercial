@@ -44,7 +44,7 @@ public static class ProductoMapper
         StockIdeal = dto.StockIdeal,
         StockMaximo = dto.StockMaximo,
         TipoStock = dto.TipoStock,
-        Activo = true // siempre se crea habilitado
+        Activo = true 
     };
 
     public static Producto ToEntity(this ProductoUpdateDTO dto, int id)

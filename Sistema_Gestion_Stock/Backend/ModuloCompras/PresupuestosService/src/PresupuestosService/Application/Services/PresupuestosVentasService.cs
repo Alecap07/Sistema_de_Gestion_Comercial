@@ -32,7 +32,6 @@ public class PresupuestosVentasService : IPresupuestosVentasService
         if (entity is null)
             return Result<PresupuestoVentaReadDto>.Fail("Presupuesto no encontrado");
 
-        // cargar items activos
         var items = await _itemsRepo.ListByPresupuestoAsync(entity.Id);
         entity.Items = items.ToList();
         return Result<PresupuestoVentaReadDto>.Ok(entity.ToReadDto());
@@ -41,7 +40,6 @@ public class PresupuestosVentasService : IPresupuestosVentasService
     public async Task<Result<IReadOnlyList<PresupuestoVentaReadDto>>> ListAsync(bool includeInactive)
     {
         var list = await _repo.ListAllAsync(includeInactive);
-        // Para cada presupuesto traer items (N+1). Si quieres optimizar luego, avisá.
         foreach (var p in list)
         {
             var items = await _itemsRepo.ListByPresupuestoAsync(p.Id);
@@ -72,8 +70,7 @@ public class PresupuestosVentasService : IPresupuestosVentasService
             return Result<bool>.Fail("No se encontró el presupuesto.");
 
         if (!entity.Activo)
-            return Result<bool>.Ok(true); // ya estaba cancelado
-
+            return Result<bool>.Ok(true); 
         var ok = await _repo.SoftDeleteAsync(id);
         return ok
             ? Result<bool>.Ok(true)

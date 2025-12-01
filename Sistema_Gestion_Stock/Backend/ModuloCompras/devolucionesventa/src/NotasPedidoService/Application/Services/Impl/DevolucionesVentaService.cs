@@ -24,13 +24,9 @@ namespace DevolucionesService.Application.Services.Impl
 
         public async Task<int> CreateAsync(DevolucionVentaCreateDTO dto)
         {
-            // Validation example
             if (dto.ClienteId <= 0) throw new ArgumentException("ClienteId inválido");
 
             var entity = _mapper.Map<DevolucionVenta>(dto);
-
-            // Logic for default values if needed
-            // if (entity.Fecha == default) entity.Fecha = DateTime.Now;
 
             return await _devolRepo.CreateAsync(entity);
         }
@@ -42,10 +38,8 @@ namespace DevolucionesService.Application.Services.Impl
 
             var read = _mapper.Map<DevolucionVentaReadDTO>(devol);
 
-            // Traer items activos por defecto
             var items = await _itemsRepo.ListByDevolucionAsync(id, false);
-            // read.Items = items.Select(i => _mapper.Map<DevolucionVentaItemReadDTO>(i)).ToList();
-            // Assuming items is IEnumerable<Entity>
+
             var itemsList = new List<DevolucionVentaItemReadDTO>();
             foreach(var item in items)
             {
@@ -59,7 +53,7 @@ namespace DevolucionesService.Application.Services.Impl
         public async Task<IEnumerable<DevolucionVentaReadDTO>> ListAsync(bool includeInactive)
         {
             var list = await _devolRepo.ListAsync(includeInactive);
-            // return list.Select(d => _mapper.Map<DevolucionVentaReadDTO>(d));
+
             var result = new List<DevolucionVentaReadDTO>();
             foreach(var item in list)
             {
@@ -73,7 +67,7 @@ namespace DevolucionesService.Application.Services.Impl
             var existing = await _devolRepo.GetByIdAsync(id);
             if (existing == null) throw new Exception("DevolucionVenta no encontrada");
 
-            _mapper.Map(dto, existing); // only non-null will be mapped
+            _mapper.Map(dto, existing); 
             await _devolRepo.UpdateAsync(id, existing);
         }
 

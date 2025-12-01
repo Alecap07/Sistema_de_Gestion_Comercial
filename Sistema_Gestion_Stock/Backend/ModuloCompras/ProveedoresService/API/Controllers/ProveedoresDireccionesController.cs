@@ -12,7 +12,6 @@ public class ProveedoresDireccionesController : ControllerBase
     private readonly IProveedorDireccionService _service;
     public ProveedoresDireccionesController(IProveedorDireccionService service) => _service = service;
 
-    // Listar todas las direcciones del proveedor (filtro por estado)
     [HttpGet("{proveedorId:int}/direcciones")]
     public async Task<ActionResult<IEnumerable<ProveedorDireccionDTO>>> GetByProveedor(int proveedorId, [FromQuery] EstadoFiltro estado = EstadoFiltro.Activos, CancellationToken ct = default)
     {
@@ -20,7 +19,6 @@ public class ProveedoresDireccionesController : ControllerBase
         return Ok(lista);
     }
 
-    // Obtener dirección individual por ID
     [HttpGet("direcciones/{id:int}")]
     public async Task<ActionResult<ProveedorDireccionDTO>> GetById(int id, CancellationToken ct = default)
     {
@@ -28,7 +26,6 @@ public class ProveedoresDireccionesController : ControllerBase
         return dir == null ? NotFound() : Ok(dir);
     }
 
-    // Crear dirección (POST)
     [HttpPost("{proveedorId:int}/direcciones")]
     public async Task<ActionResult<int>> Create(int proveedorId, [FromBody] ProveedorDireccionCreateDTO dto, CancellationToken ct)
     {
@@ -36,7 +33,6 @@ public class ProveedoresDireccionesController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = newId }, newId);
     }
 
-    // Modificar dirección (PUT)
     [HttpPut("direcciones/{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] ProveedorDireccionUpdateDTO dto, CancellationToken ct)
     {

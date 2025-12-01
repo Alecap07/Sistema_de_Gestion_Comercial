@@ -4,15 +4,14 @@ namespace Application.DTOs
     {
         public int IdScrap { get; set; }
 
-        // Relación con Productos
+ 
         public int Codigo { get; set; }
-        public string? NombreProducto { get; set; }  // opcional para mostrar en el front
+        public string? NombreProducto { get; set; }  
 
-        // Usuario que deriva al scrap
+
         public int? IdUsuario { get; set; }
-        public string? NombreUsuario { get; set; }   // opcional para mostrar en el front
+        public string? NombreUsuario { get; set; }   
 
-        // Datos del movimiento
         public int Cantidad { get; set; }
         public string Motivo { get; set; } = null!;
         public string? Observaciones { get; set; }

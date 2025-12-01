@@ -33,7 +33,6 @@ namespace DevolucionesService.Application.Services.Impl
         public async Task<IEnumerable<DevolucionVentaItemReadDTO>> ListByDevolucionAsync(int devolucionVentaId, bool includeInactive)
         {
             var list = await _itemsRepo.ListByDevolucionAsync(devolucionVentaId, includeInactive);
-            // return list.Select(i => _mapper.Map<DevolucionVentaItemReadDTO>(i));
             var result = new List<DevolucionVentaItemReadDTO>();
             foreach(var item in list)
             {

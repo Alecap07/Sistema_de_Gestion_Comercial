@@ -14,7 +14,7 @@ namespace Domain.Entities
 
         [Required]
         [Column("Codigo")]
-        public int Codigo { get; set; }  // 🔹 Campo único usado en FKs
+        public int Codigo { get; set; }  
 
         [Required]
         [StringLength(100)]
@@ -45,7 +45,7 @@ namespace Domain.Entities
         [Column("FechaCreacion")]
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
 
-        // Relaciones
+
         public ICollection<MovimientoStock> MovimientosStock { get; set; } = new List<MovimientoStock>();
         public ICollection<Scrap> Scraps { get; set; } = new List<Scrap>();
     }

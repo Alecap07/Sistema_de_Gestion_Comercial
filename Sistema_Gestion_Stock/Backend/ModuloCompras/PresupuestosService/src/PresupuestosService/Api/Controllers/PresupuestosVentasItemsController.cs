@@ -15,7 +15,6 @@ public class PresupuestosVentasItemsController : ControllerBase
         _service = service;
     }
 
-    // POST crear item
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] PresupuestoVentaItemCreateDto dto)
     {
@@ -23,7 +22,6 @@ public class PresupuestosVentasItemsController : ControllerBase
         return Created($"/api/presupuestos/items/{r.Data}", new { id = r.Data });
     }
 
-    // GET item por id (aunque esté inactivo)
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -31,7 +29,6 @@ public class PresupuestosVentasItemsController : ControllerBase
         return r.Success ? Ok(r.Data) : NotFound(new { r.Error });
     }
 
-    // GET items por presupuesto (solo activos según SP)
     [HttpGet("/api/presupuestos/{presupuestoId:int}/items")]
     public async Task<IActionResult> ListByPresupuesto(int presupuestoId)
     {
@@ -39,7 +36,6 @@ public class PresupuestosVentasItemsController : ControllerBase
         return Ok(r.Data);
     }
 
-    // PUT actualizar item
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] PresupuestoVentaItemUpdateDto dto)
     {
@@ -47,7 +43,6 @@ public class PresupuestosVentasItemsController : ControllerBase
         return r.Success ? NoContent() : NotFound(new { r.Error });
     }
 
-    // PATCH cancelar item (soft delete)
     [HttpPatch("{id:int}/cancelar")]
     public async Task<IActionResult> Cancel(int id)
     {

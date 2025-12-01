@@ -15,7 +15,7 @@ public class PresupuestosVentasController : ControllerBase
         _service = service;
     }
 
-    // POST crear
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] PresupuestoVentaCreateDto dto)
     {
@@ -23,7 +23,7 @@ public class PresupuestosVentasController : ControllerBase
         return Created($"/api/presupuestos/{r.Data}", new { id = r.Data });
     }
 
-    // GET listar (general) con items
+
     [HttpGet]
     public async Task<IActionResult> List([FromQuery] bool includeInactive = false)
     {
@@ -31,7 +31,6 @@ public class PresupuestosVentasController : ControllerBase
         return Ok(r.Data);
     }
 
-    // GET por id (trae aunque esté inactivo)
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -39,7 +38,7 @@ public class PresupuestosVentasController : ControllerBase
         return r.Success ? Ok(r.Data) : NotFound(new { r.Error });
     }
 
-    // PUT actualizar
+
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] PresupuestoVentaUpdateDto dto)
     {
@@ -47,7 +46,7 @@ public class PresupuestosVentasController : ControllerBase
         return r.Success ? NoContent() : NotFound(new { r.Error });
     }
 
-    // PATCH cancelar (soft delete)
+
     [HttpPatch("{id:int}/cancelar")]
     public async Task<IActionResult> Cancel(int id)
     {

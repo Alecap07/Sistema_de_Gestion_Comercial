@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Acceso a SQL Server -->
+
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.4" />
-    <!-- Dapper para ejecutar SP y mapear -->
+
     <PackageReference Include="Dapper" Version="2.1.35" />
-    <!-- Swagger/OpenAPI -->
+
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 

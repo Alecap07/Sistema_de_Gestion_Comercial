@@ -21,7 +21,6 @@ namespace NotasDebitoService.Application.Services.Impl
 
         public async Task<int> CreateAsync(NotaDebitoVentaCreateDTO dto)
         {
-            // Validation
             if (dto.ClienteId <= 0) throw new ArgumentException("ClienteId inválido");
             if (dto.Monto <= 0) throw new ArgumentException("Monto debe ser mayor a 0");
 
@@ -53,7 +52,7 @@ namespace NotasDebitoService.Application.Services.Impl
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null) throw new Exception("Nota de débito no encontrada");
 
-            _mapper.Map(dto, existing); // only non-null will be mapped
+            _mapper.Map(dto, existing); 
             await _repository.UpdateAsync(id, existing);
         }
 

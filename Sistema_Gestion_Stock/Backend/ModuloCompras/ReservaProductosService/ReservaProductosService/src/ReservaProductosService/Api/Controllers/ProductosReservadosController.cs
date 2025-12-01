@@ -15,7 +15,6 @@ public class ProductosReservadosController : ControllerBase
         _service = service;
     }
 
-    // POST crear reserva de producto
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] ProductoReservadoCreateDto dto)
     {
@@ -23,8 +22,6 @@ public class ProductosReservadosController : ControllerBase
         return Created($"/api/productos-reservados/{result.Data}", new { id = result.Data });
     }
 
-    // GET listar (puede traer activos, inactivos o todos)
-    // /api/productos-reservados?estado=activos|inactivos|todos
     [HttpGet]
     public async Task<IActionResult> List([FromQuery] string? estado = "activos")
     {
@@ -35,7 +32,6 @@ public class ProductosReservadosController : ControllerBase
         return Ok(result.Data);
     }
 
-    // GET por id (trae aunque esté inactivo)
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -43,7 +39,6 @@ public class ProductosReservadosController : ControllerBase
         return result.Success ? Ok(result.Data) : NotFound(new { result.Error });
     }
 
-    // PUT actualizar (reemplaza campos enviados, omite nulls)
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] ProductoReservadoUpdateDto dto)
     {
@@ -51,7 +46,6 @@ public class ProductosReservadosController : ControllerBase
         return result.Success ? NoContent() : NotFound(new { result.Error });
     }
 
-    // PATCH cancelar (soft delete -> Activo = 0)
     [HttpPatch("{id:int}/cancelar")]
     public async Task<IActionResult> Cancel(int id)
     {

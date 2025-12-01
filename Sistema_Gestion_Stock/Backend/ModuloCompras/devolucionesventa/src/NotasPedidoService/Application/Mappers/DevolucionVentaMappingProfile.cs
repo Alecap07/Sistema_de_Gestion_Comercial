@@ -8,13 +8,11 @@ namespace DevolucionesService.Application.Mappers
     {
         public DevolucionVentaMappingProfile()
         {
-            // Mapeos para DevolucionVenta
             CreateMap<DevolucionVentaCreateDTO, DevolucionVenta>();
             CreateMap<DevolucionVentaUpdateDTO, DevolucionVenta>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
             CreateMap<DevolucionVenta, DevolucionVentaReadDTO>();
 
-            // Mapeos para DevolucionVentaItem
             CreateMap<DevolucionVentaItemCreateDTO, DevolucionVentaItem>();
             CreateMap<DevolucionVentaItemUpdateDTO, DevolucionVentaItem>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));

@@ -23,7 +23,7 @@ public class HealthController : ControllerBase
     {
         var cs = _config.GetConnectionString("DefaultConnection") ?? string.Empty;
         var redacted = cs;
-        // Ocultar password si presente
+
         try
         {
             var builder = new SqlConnectionStringBuilder(cs);
@@ -33,7 +33,7 @@ public class HealthController : ControllerBase
                 redacted = builder.ToString();
             }
         }
-        catch { /* ignore parse errors */ }
+        catch { }
 
         try
         {

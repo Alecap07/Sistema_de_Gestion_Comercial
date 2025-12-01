@@ -10,7 +10,6 @@ namespace NotasPedidoService.Application.DTOs
         public DateTime? Fecha { get; set; }
         public bool Activo { get; set; } = true;
 
-        // Referencia a los items usando el DTO definido en CreateNotaPedidoVentaItemDTO.cs
         public List<NotaPedidoVentaItemCreateDTO> Items { get; set; } = new List<NotaPedidoVentaItemCreateDTO>();
     }
 }

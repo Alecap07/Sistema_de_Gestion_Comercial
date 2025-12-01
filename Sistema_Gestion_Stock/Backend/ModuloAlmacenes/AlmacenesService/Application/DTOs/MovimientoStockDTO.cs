@@ -5,8 +5,7 @@ namespace Application.DTOs
         public int IdMovimiento { get; set; }
 
         public int Codigo { get; set; }
-        public string? NombreProducto { get; set; }  // útil para el front
-
+        public string? NombreProducto { get; set; }  
         public int? IdOrden { get; set; }
         public string TipoMovimiento { get; set; } = null!;
         public int Cantidad { get; set; }

@@ -12,7 +12,6 @@ public class ProveedorCategoriasController : ControllerBase
     private readonly IProveedorCategoriaService _service;
     public ProveedorCategoriasController(IProveedorCategoriaService service) => _service = service;
 
-    // Listar categorías de un proveedor
     [HttpGet("{proveedorId:int}/categorias")]
     public async Task<ActionResult<IEnumerable<ProveedorCategoriaDTO>>> GetByProveedor(int proveedorId, [FromQuery] EstadoFiltro estado = EstadoFiltro.Activos, CancellationToken ct = default)
     {
@@ -20,7 +19,6 @@ public class ProveedorCategoriasController : ControllerBase
         return Ok(lista);
     }
 
-    // Obtener asociación individual por ID
     [HttpGet("categorias/{id:int}")]
     public async Task<ActionResult<ProveedorCategoriaDTO>> GetById(int id, CancellationToken ct = default)
     {
@@ -28,7 +26,6 @@ public class ProveedorCategoriasController : ControllerBase
         return obj == null ? NotFound() : Ok(obj);
     }
 
-    // Crear categoría (asociar proveedor a categoría)
     [HttpPost("{proveedorId:int}/categorias")]
     public async Task<ActionResult<int>> Create(int proveedorId, [FromBody] ProveedorCategoriaCreateDTO dto, CancellationToken ct)
     {
@@ -36,7 +33,6 @@ public class ProveedorCategoriasController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = newId }, newId);
     }
 
-    // Modificar asociación (cambiar categoría, activar/desactivar)
     [HttpPut("categorias/{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] ProveedorCategoriaUpdateDTO dto, CancellationToken ct)
     {

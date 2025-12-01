@@ -15,9 +15,7 @@ namespace Domain.Entities
 
         [Required]
         [Column("Codigo")]
-        public int Codigo { get; set; }  // FK hacia Productos.Codigo
-
-        [Required]
+        public int Codigo { get; set; }  
         [Column("Cantidad")]
         public int Cantidad { get; set; }
 
@@ -34,7 +32,7 @@ namespace Domain.Entities
         [Column("Observaciones")]
         public string? Observaciones { get; set; }
 
-        // 🔹 Navegación hacia Producto, ignorada en JSON para evitar ciclos
+        
         [JsonIgnore]
         public Producto? Producto { get; set; }
     }

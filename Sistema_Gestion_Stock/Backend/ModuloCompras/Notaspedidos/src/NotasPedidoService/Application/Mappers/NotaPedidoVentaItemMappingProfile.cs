@@ -8,7 +8,6 @@ namespace NotasPedidoService.Application.Mappers
     {
         public NotaPedidoVentaItemMappingProfile()
         {
-            // Mapeos para NotaPedidoVentaItem
             CreateMap<NotaPedidoVentaItemCreateDTO, NotaPedidoVentaItem>();
             CreateMap<NotaPedidoVentaItemUpdateDTO, NotaPedidoVentaItem>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
