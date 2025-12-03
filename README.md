@@ -68,7 +68,23 @@ dotnet run
 
 Repite en cada servicio que necesites.
 
-### 2. Frontend de Stock / Compras / Ventas
+### 2. Frontends con script automático (`run_frontend.ps1`)
+
+Desde la raíz del repositorio (`Sistema_de_Gestion_Comercial`) puedes levantar **ambos frontends** (Usuarios y Stock) con:
+
+```powershell
+cd C:\Users\Alejo\Documents\GitHub\Sistema_de_Gestion_Comercial
+./run_frontend.ps1
+```
+
+Este script:
+- Ejecuta `npm start` en `Sistema_Gestion_Usuarios/frontend` (puerto 3000 por defecto).
+- Ejecuta `npm run dev` en `Sistema_Gestion_Stock/Frontend` (puerto Vite, p. ej. 5173).
+- Abre automáticamente el navegador en `http://localhost:3000` (frontend principal de Usuarios).
+
+> Nota: asegúrate de haber ejecutado al menos una vez `npm install` en **cada** frontend antes de usar el script.
+
+### 3. Frontend de Stock / Compras / Ventas (manual)
 
 ```powershell
 cd .\Sistema_Gestion_Stock\Frontend
@@ -78,7 +94,7 @@ npm run dev
 
 Luego abre el navegador en la URL que muestre Vite (por defecto `http://localhost:5173`).
 
-### 3. Frontend de Usuarios
+### 4. Frontend de Usuarios (manual)
 
 ```powershell
 cd .\Sistema_Gestion_Usuarios\frontend
@@ -95,7 +111,6 @@ En la carpeta `BD'S/` se incluyen backups `.bak` para las distintas APIs:
 - `DevolucionesVenta_Ventas_API_7.bak`
 - `Facturas_Compras_API_5.bak`
 - `Gestion_Usuarios.bak`
-- `Intranet.bak`
 - `NotasCredito_Ventas_API_4.bak`
 - `NotasDebito_Ventas_API_5.bak`
 - `NotasPedido_Ventas_API_6.bak`
@@ -108,7 +123,7 @@ En la carpeta `BD'S/` se incluyen backups `.bak` para las distintas APIs:
 Restáuralas en tu instancia de SQL Server y configura las cadenas de conexión (`connectionStrings`) en los `appsettings.json` correspondientes de cada servicio.
 
 ## Estructura de carpetas (resumen)
-
+- `Acceso/` -Acceso al sistema.
 - `BD'S/` – backups de bases de datos.
 - `DiseñoArquitectura/` – diagramas y documentación de arquitectura.
 - `Documentacion/` – documentación adicional.
